@@ -22,7 +22,8 @@ context code
 
 template while :region :indent :blank
 ----
-while ({{REGIONTEXT}}) {
-// fill in
+while ({{?CONDITION}}) {
+{{REGIONTEXT}}
 }
 ----
+bind "w"

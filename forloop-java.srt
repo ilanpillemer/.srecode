@@ -1,4 +1,4 @@
-	;; getset-java.srt --- 
+;; forloop-java.srt --- 
 ;;
 ;; Copyright (C) 2014 Ilan Pillemer
 ;;
@@ -18,22 +18,20 @@
 ;; along with this program.  If not, see http://www.gnu.org/licenses/.
 
 set mode "java-mode"
+set escape_start "{{"
+set escape_end "}}"
 
 context code
-prompt "EXCEPTION" "Exception: " default "Exception"
 
-template trycatch :region :indent :blank
+template forloop :region :indent :blank
+""
 ----
-try {
-{{REGIONTEXT}}
-} catch ({{?EXCEPTION}} e) {
-// handle any exceptions
-} finally {
-// close any locks or connections etc
+for (int {{?i}} = 0; {{i}} < {{?max}}; {{i}}++) {
+	{{REGIONTEXT}}
 }
 ----
-bind "t"
+bind "f"
+
+
+
 ;; end
-
-
-
